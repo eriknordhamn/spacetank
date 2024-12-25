@@ -135,7 +135,7 @@ try:
     os.system("sudo chmod 777 /" + user_home + "/startup.sh")
     with open("/" + user_home + "/startup.sh",'w') as file_to_write:
         #you can choose how to control the robot
-        file_to_write.write("#!/bin/sh\nsleep 5\nsource " + thisPath + "/env/bin/activate\nsudo python3 " + thisPath + "/web/webServer.py")
+        file_to_write.write("#!/bin/sh\nsleep 5\nsource " + thisPath + "/env/bin/activate\npython3 " + thisPath + "/web/webServer.py")
 except:
     pass
 

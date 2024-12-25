@@ -110,10 +110,8 @@ else:
             break
 
 commands_3 = [
-    "cd ~",
     "git clone https://github.com/oblique/create_ap",
     "cd create_ap && sudo make install",
-    # "cd //home/pi/create_ap && sudo make install",
     "sudo apt install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
 ]
 

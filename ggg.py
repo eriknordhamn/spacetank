@@ -10,12 +10,12 @@ import time
 username = "erik"
 user_home = "/home/erik"
 
-quit()
+os.system("cd ~")
+
+os.system("ls")
 
 curpath = os.path.realpath(__file__)
 thisPath = os.path.dirname(curpath)
 
 print(thisPath)
-
-os.system("pip install numpy")
 

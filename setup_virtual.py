@@ -114,7 +114,7 @@ commands_3 = [
     "git clone https://github.com/oblique/create_ap",
     "cd create_ap && sudo make install",
     # "cd //home/pi/create_ap && sudo make install",
-    "sudo apt install -y util-linux procps hostapd iproute2 iw havegd dnsmasq"
+    "sudo apt install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
 ]
 
 mark_3 = 0
@@ -126,41 +126,21 @@ for x in range(3):
     if mark_3 == 0:
         break
 
-quit()
-
-# commands_3 = [
-#     "sudo pip3 install numpy --break-system-packages",
-#     #"sudo pip3 install opencv-contrib-python==3.4.3.18",
-#     # "sudo pip3 install opencv-contrib-python==3.4.17.61",
-#     "sudo pip3 install imutils zmq pybase64 psutil --break-system-packages"
-# ]
-
-# mark_3 = 0
-# for x in range(3):
-#     for command in commands_3:
-#         if os.system(command) != 0:
-#             print("Error running installation step 3")
-#             mark_3 = 1
-#     if mark_3 == 0:
-#         break
-
-
 try:
-    replace_num("/boot/config.txt", '#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
+    replace_num("/boot/firmware/config.txt", '#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
 except:
     print('Error updating boot config to enable i2c. Please try again.')
 
-
-
 try:
-    os.system("sudo touch /"+ user_home +"/startup.sh")
-    with open("/"+ user_home +"/startup.sh",'w') as file_to_write:
+    os.system("sudo touch " + user_home + "/startup.sh")
+    with open("/" + user_home + "/startup.sh",'w') as file_to_write:
         #you can choose how to control the robot
         file_to_write.write("#!/bin/sh\nsleep 5\nsudo python3 " + thisPath + "/web/webServer.py")
 #       file_to_write.write("#!/bin/sh\nsudo python3 " + thisPath + "/server/server.py")
 except:
     pass
 
+quit()
 
 os.system("sudo chmod 777 /"+ user_home +"/startup.sh")
 replace_num('/etc/rc.local','fi','fi\n/'+ user_home +'startup.sh start')

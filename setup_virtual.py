@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 # coding=utf-8
-# File name   : setup.py
-# Author      : Devin
+# File name   : setup_virtual.py
+# Author      : Erik Nordhamn
 
 import os
 import time
 
+#Set user and user home
 username = "erik"
 user_home = "/home/erik"
- 
+
+#Find path to the script
 curpath = os.path.realpath(__file__)
 thisPath = os.path.dirname(curpath)
-
 print(thisPath)
 
 def replace_num(file,initial,new_num):
@@ -110,8 +111,8 @@ else:
             break
 
 commands_3 = [
-    "git clone https://github.com/oblique/create_ap",
-    "cd create_ap && sudo make install",
+    "cd ..;git clone https://github.com/oblique/create_ap",
+    "cd ../create_ap && sudo make install",
     "sudo apt install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
 ]
 
@@ -134,8 +135,7 @@ try:
     os.system("sudo chmod 777 /" + user_home + "/startup.sh")
     with open("/" + user_home + "/startup.sh",'w') as file_to_write:
         #you can choose how to control the robot
-        file_to_write.write("#!/bin/sh\nsleep 5\nsudo python3 " + thisPath + "/web/webServer.py")
-#       file_to_write.write("#!/bin/sh\nsudo python3 " + thisPath + "/server/server.py")
+        file_to_write.write("#!/bin/sh\nsleep 5\nsource " + thisPath + "/env/bin/activate\nsudo python3 " + thisPath + "/web/webServer.py")
 except:
     pass
 

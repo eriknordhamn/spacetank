@@ -1,0 +1,10 @@
+[Unit]
+Description=SpaceTank web server
+
+[Service]
+Type=simple
+WorkingDirectory=/home/erik
+ExecStart=/usr/bin/sh /home/erik/startup.sh
+
+[Install]
+WantedBy=multi-user.target

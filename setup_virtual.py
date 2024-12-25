@@ -6,11 +6,11 @@
 import os
 import time
 
-username = os.popen("echo ${SUDO_USER:-$(who -m | awk '{ print $1 }')}").readline().strip() # pi
-user_home = os.popen('getent passwd %s | cut -d: -f 6'%username).readline().strip()         # home
+username = "erik"
+user_home = "/home/erik"
  
 curpath = os.path.realpath(__file__)
-thisPath = "/" + os.path.dirname(curpath)
+thisPath = os.path.dirname(curpath)
 
 print(thisPath)
 
@@ -68,47 +68,27 @@ def check_os_bit():
     return int(os_bit)
 
 
-commands_apt = [
-"sudo apt-get update",
-"sudo apt-get install python3-gpiozero python3-pigpio",
-"sudo apt-get install  -y python3-opencv",
-"sudo apt-get install -y python3-pyqt5 python3-opengl",
-"sudo apt-get install -y python3-picamera2",
-"sudo apt-get install -y python3-picamera2 --no-install-recommends",
-"sudo apt-get install -y python3-opencv",
-"sudo apt-get install -y opencv-data",
-"sudo apt-get install -y python3-pyaudio"
-]
-mark_apt = 0
-for x in range(3):
-    for command in commands_apt:
-        if os.system(command) != 0:
-            print("Error running installation step apt")
-            mark_apt = 1
-    if mark_apt == 0:
-        break
-
 commands_pip_1 = [
-"sudo pip3 install adafruit-circuitpython-motor",
-"sudo pip3 install adafruit-circuitpython-pca9685",
-"sudo pip3 install flask",
-"sudo pip3 install flask_cors",
-"sudo pip3 install numpy",
-"sudo pip3 install pyzmq",
-"sudo pip3 install imutils zmq pybase64 psutil",
-"sudo pip3 install websockets",
-"sudo pip3 install adafruit-circuitpython-ads7830"
+"pip3 install adafruit-circuitpython-motor",
+"pip3 install adafruit-circuitpython-pca9685",
+"pip3 install flask",
+"pip3 install flask_cors",
+"pip3 install numpy",
+"pip3 install pyzmq",
+"pip3 install imutils zmq pybase64 psutil",
+"pip3 install websockets",
+"pip3 install adafruit-circuitpython-ads7830"
 ]
 commands_pip_2 = [
-"sudo pip3 install adafruit-circuitpython-motor --break-system-packages",
-"sudo pip3 install adafruit-circuitpython-pca9685 --break-system-packages",
-"sudo pip3 install flask --break-system-packages",
-"sudo pip3 install flask_cors --break-system-packages",
-"sudo pip3 install numpy --break-system-packages",
-"sudo pip3 install pyzmq --break-system-packages",
-"sudo pip3 install imutils zmq pybase64 psutil --break-system-packages",
-"sudo pip3 install websockets --break-system-packages",
-"sudo pip3 install adafruit-circuitpython-ads7830 --break-system-packages"
+"pip3 install adafruit-circuitpython-motor",
+"pip3 install adafruit-circuitpython-pca9685",
+"pip3 install flask",
+"pip3 install flask_cors",
+"pip3 install numpy",
+"pip3 install pyzmq",
+"pip3 install imutils zmq pybase64 psutil",
+"pip3 install websockets",
+"pip3 install adafruit-circuitpython-ads7830"
 ]
 mark_pip = 0
 OS_version = check_raspbain_version()
@@ -131,10 +111,10 @@ else:
 
 commands_3 = [
     "cd ~",
-    "sudo git clone https://github.com/oblique/create_ap",
+    "git clone https://github.com/oblique/create_ap",
     "cd create_ap && sudo make install",
     # "cd //home/pi/create_ap && sudo make install",
-    "sudo apt-get install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
+    "sudo apt install -y util-linux procps hostapd iproute2 iw havegd dnsmasq"
 ]
 
 mark_3 = 0
@@ -145,6 +125,8 @@ for x in range(3):
             mark_2 = 1
     if mark_3 == 0:
         break
+
+quit()
 
 # commands_3 = [
 #     "sudo pip3 install numpy --break-system-packages",

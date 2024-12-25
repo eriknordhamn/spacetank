@@ -124,13 +124,14 @@ for x in range(3):
     if mark_3 == 0:
         break
 
-try:
-    replace_num("/boot/firmware/config.txt", '#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
-except:
-    print('Error updating boot config to enable i2c. Please try again.')
+#try:
+#    replace_num("/boot/firmware/config.txt", '#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
+#except:
+#    print('Error updating boot config to enable i2c. Please try again.')
 
 try:
     os.system("sudo touch " + user_home + "/startup.sh")
+    os.system("sudo chmod 777 /" + user_home + "/startup.sh")
     with open("/" + user_home + "/startup.sh",'w') as file_to_write:
         #you can choose how to control the robot
         file_to_write.write("#!/bin/sh\nsleep 5\nsudo python3 " + thisPath + "/web/webServer.py")
@@ -140,7 +141,7 @@ except:
 
 quit()
 
-os.system("sudo chmod 777 /"+ user_home +"/startup.sh")
+
 replace_num('/etc/rc.local','fi','fi\n/'+ user_home +'startup.sh start')
 
 # try: #fix conflict with onboard Raspberry Pi audio

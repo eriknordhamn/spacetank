@@ -13,5 +13,8 @@ source env/bin/activate
 Run setup:
 python3 setup_virtual.py
 
-Last step is setting up start at boot. Remains to be done.
-
+Define a systemd service and set it up:
+sudo cp my-spacetank.service /etc/systemd/system/.
+sudo systemctl daemon-reload
+sudo systemctl enable my-spacetank
+sudo systemctl start my-spacetank

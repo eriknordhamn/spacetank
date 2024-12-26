@@ -20,3 +20,6 @@ sudo systemctl enable my-spacetank
 sudo systemctl start my-spacetank
 
 
+To check services and stop:
+sudo systemctl status my*
+sudo systemctl stop my-spacetank

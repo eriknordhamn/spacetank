@@ -23,3 +23,6 @@ sudo systemctl start my-spacetank
 To check services and stop:
 sudo systemctl status my*
 sudo systemctl stop my-spacetank
+
+Problems wih create_ap
+sudo apt install iptables

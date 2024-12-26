@@ -7,7 +7,7 @@ chmod u+x setup_modules.sh
 
 Create a virtual environment "env" and activate:
 
-python3 -m venv env
+python3 -m venv --system-site-packages env
 source env/bin/activate
 
 Run setup:
@@ -18,3 +18,5 @@ sudo cp my-spacetank.service /etc/systemd/system/.
 sudo systemctl daemon-reload
 sudo systemctl enable my-spacetank
 sudo systemctl start my-spacetank
+
+

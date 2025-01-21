@@ -51,8 +51,8 @@ turn_speed = 35 # Range of values: 0-100
 forward_speed = 20 # Avoid too fast, the video screen does not respond in time. Range of values: 0-100.
 
 
-hflip = 0 # Video flip horizontally: 0 or 1 （视频是否需要水平翻转）
-vflip = 0 # Video vertical flip: 0/1 （视频是否需要垂直翻转）
+hflip = 1 # Video flip horizontally: 0 or 1 （视频是否需要水平翻转）
+vflip = 1 # Video vertical flip: 0/1 （视频是否需要垂直翻转）
 ImgIsNone = 0
 
 colorUpper = np.array([44, 255, 255])

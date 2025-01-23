@@ -7,7 +7,7 @@ sudo apt upgrade
 
 Create keys if not available
 
-ssh-keygen -t ed25519 -C "email"
+ssh-keygen -t ed25519 -C "Erik.Nordhamn@rymdbob.se"
 
 Go to directory
 

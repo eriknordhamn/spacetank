@@ -11,7 +11,7 @@ ssh-keygen -t ed25519 -C "email"
 
 Go to directory
 
-git clone 
+git clone git@github.com:eriknordhamn/spacetank.git
 
 Make setup_modules.sh executable and run:
 

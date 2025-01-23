@@ -1,14 +1,17 @@
 Copied from Adeept RaspTank2 and customzied.
 
-Create keys if not available
-
-ssh-keygen -t ed25519 -C "email"
-
 Basic upgrade
 
 sudo apt update
 sudo apt upgrade
 
+Create keys if not available
+
+ssh-keygen -t ed25519 -C "email"
+
+Go to directory
+
+git clone 
 
 Make setup_modules.sh executable and run:
 

@@ -1,5 +1,9 @@
 Copied from Adeept RaspTank2 and customzied.
 
+Create keys if not available
+
+ssh-keygen -t ed25519 -C "email"
+
 Make setup_modules.sh executable and run:
 
 chmod u+x setup_modules.sh

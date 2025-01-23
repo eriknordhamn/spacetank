@@ -110,20 +110,20 @@ else:
         if mark_pip == 0:
             break
 
-commands_3 = [
-    "cd ..;git clone https://github.com/oblique/create_ap",
-    "cd ../create_ap && sudo make install",
-    "sudo apt install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
-]
+#commands_3 = [
+#    "cd ..;git clone https://github.com/oblique/create_ap",
+#    "cd ../create_ap && sudo make install",
+#    "sudo apt install -y util-linux procps hostapd iproute2 iw haveged dnsmasq"
+#]
 
-mark_3 = 0
-for x in range(3):
-    for command in commands_3:
-        if os.system(command) != 0:
-            print("Error running installation step 3")
-            mark_2 = 1
-    if mark_3 == 0:
-        break
+#mark_3 = 0
+#for x in range(3):
+#    for command in commands_3:
+#        if os.system(command) != 0:
+#            print("Error running installation step 3")
+#            mark_2 = 1
+#    if mark_3 == 0:
+#        break
 
 #try:
 #    replace_num("/boot/firmware/config.txt", '#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
@@ -135,7 +135,7 @@ try:
     os.system("sudo chmod 777 /" + user_home + "/startup.sh")
     with open("/" + user_home + "/startup.sh",'w') as file_to_write:
         #you can choose how to control the robot
-        file_to_write.write("#!/usr/bin/bash\nsleep 5\nsource " + thisPath + "/env/bin/activate\npython3 " + thisPath + "/web/webServer.py")
+        file_to_write.write("#!/usr/bin/bash\nsleep 5\nsource " + thisPath + "/env/bin/activate\nsudo -E env PATH=\"$PATH\" python3 " + thisPath + "/web/webServer.py")
 except:
     pass
 

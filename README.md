@@ -11,6 +11,8 @@ ssh-keygen -t ed25519 -C "Erik.Nordhamn@rymdbob.se"
 
 Go to directory
 
+git config --global user.email "Erik.Nordhamn@rymdbob.se"
+git config --global user.namn "Erik Nordhamn"
 git clone git@github.com:eriknordhamn/spacetank.git
 
 Make setup_modules.sh executable and run:
